@@ -26,11 +26,17 @@ public class WeatherController {
         return repository.findById(id);
     }
 
+    @GetMapping("/{latitude}/{longitude}")
+    public Optional<Weather> findByLongitudeAndLatitude(@PathVariable Double latitude,@PathVariable  Double longitude){
+        return repository.findByLongitudeAndLatitude(latitude,longitude);
+    }
+
     @PostMapping
     public ResponseEntity<Weather> save(@RequestBody Weather weather) {
         return repository.findById(weather.getId()).isPresent()
                 ? new ResponseEntity(repository.findById(weather.getId()), HttpStatus.BAD_REQUEST)
                 : new ResponseEntity<>(repository.save(weather), HttpStatus.CREATED);
     }
+
 
 }

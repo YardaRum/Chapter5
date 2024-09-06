@@ -1,4 +1,4 @@
-package com.example.weather.model;
+package com.example.person.model;
 
 
 import jakarta.persistence.Entity;
@@ -17,16 +17,16 @@ public class Weather {
     @Id
     @GeneratedValue
     private int id;
-    @NonNull
+
     private String weatherType;
     @NonNull
     private int temperature;
     @NonNull
-    private Double latitude;
+    private String latitude;
     @NonNull
-    private Double longitude;
+    private String longitude;
 
-    public Weather(@NonNull String weatherType, @NonNull int temperature, @NonNull Double latitude, @NonNull Double longitude) {
+    public Weather( String weatherType, @NonNull int temperature, @NonNull String latitude, @NonNull String longitude) {
         this.weatherType = weatherType;
         this.temperature = temperature;
         this.latitude = latitude;
